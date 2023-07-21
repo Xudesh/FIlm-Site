@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Главная
+{% endblock %}
+
+{% block content %}
+    <div class="conteiner">
+        {% for post in posts %}
+            <div class="content">
+                <div class="image">
+                    <a href="{{ post.get_absolute_url }}"><img src="{{ post.image.url }}" alt="Post" width="230px" height="300px"></a>
+                </div>
+                <div class="name">
+                    <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %} 

@@ -1,0 +1,72 @@
+.conteiner{
+    margin: 50px 100px;
+}
+
+a:link{
+    color: black;
+    text-decoration: none;
+    outline: none;
+    
+}
+
+.information{
+    text-align: center;
+}
+
+
+
+.conteiner .content{
+    display: inline-block;
+    margin-left: 50px;
+    margin-bottom: 50px;
+}
+
+.postdetail .post-content{
+    margin-left: 200px;
+    margin-right: 10px;
+    display: inline-flex;
+}
+
+.about-post {
+    margin-left: 450px;
+    grid-template-columns: repeat(2, 300px);
+    grid-column-gap: 40px;
+    display: grid;
+    color: black ;
+    margin-top: 15px;
+}
+
+
+
+
+.comment {
+    padding:10px;
+}
+
+
+.comment .info {
+    font-weight:bold;
+    font-size:20px;
+    display: inline;
+
+}
+
+
+.comment .data {
+    display: inline;
+}
+
+p .data{
+    display: inline;
+
+}
+
+
+
+h2{
+    text-align: center;
+}
+
+.comment_add{
+    text-align: center;
+}

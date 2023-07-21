@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    {{ post.title }}
+{% endblock %}
+
+{% block content %}
+    <div class="information">
+        <h1>{{ post.title }}</h1>
+        <p class="date">
+            Published {{ post.publish | date }} by {{ post.user }}
+        </p> 
+    </div>
+
+    <div class="postdetail">
+        <div class="post-content">
+            <img src="{{ post.image.url }}" alt="" width="300px" height="400px">
+            <video src="{{ post.video.url }}" width="800px" controls  type="video/mp4"></video>
+        </div>
+
+        <div class="about-post">
+                <div>Год производства</div>
+                <div>{{ post.release_date }}</div>  
+                
+
+                <div>Страна</div>
+                <div>{{ post.country }}</div>
+
+        
+                <div>Жанр</div>
+                <div>{{ post.genre }}</div>
+
+         
+
+                <div>Кассовые сборы</div>
+                <div>${{ post.budget }}</div>
+
+
+                <div>Главный роль</div>
+                <div>{{ post.actors }}</div>
+
+
+                <div>Номинация</div>
+                <div>{{ post.nomination }}</div>
+
+        </div>
+    </div>
+
+
+    {% with comments.count as total_comments %} 
+        <h3>
+            {{ total_comments }} comment{{ total_comments|pluralize }}
+        </h3>
+    {% endwith %}
+    {% for comment in comments %}
+        <div class="comment">
+            <p class="info">
+                <b>{{ comment.name }}</b> 
+            </p>
+            <p class="data"><i>
+                {{comment.created| time }}
+            </i></p> 
+            <br>
+            <p class="text">{{ comment.body|linebreaks }}</p>
+        </div>
+    {% empty %}
+        <p id="center_comment">There are no comments</p>
+    {% endfor %}
+    {% include 'post/comment_form.html' %}
+
+{% endblock %} 
